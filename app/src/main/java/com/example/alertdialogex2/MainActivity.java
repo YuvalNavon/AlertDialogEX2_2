@@ -58,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
         adb4.setPositiveButton("COLOR GO BRRRR", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                randnum = rand.nextInt(5);
+                randnum = rand.nextInt(6);
                 while (lastnum==randnum){
-                    randnum = rand.nextInt(5);
+                    randnum = rand.nextInt(6);
                 }
                 lastnum = randnum;
                 screen.setBackgroundColor(colors[randnum]);
@@ -82,9 +82,9 @@ public class MainActivity extends AppCompatActivity {
         adb5.setPositiveButton("COLOR GO BRRRR 2", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                randnum = rand.nextInt(5);
+                randnum = rand.nextInt(6);
                 while (lastnum==randnum){
-                    randnum = rand.nextInt(5);
+                    randnum = rand.nextInt(6);
                 }
                 lastnum = randnum;
                 screen.setBackgroundColor(colors[randnum]);
