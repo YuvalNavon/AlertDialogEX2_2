@@ -15,8 +15,9 @@ public class MainActivity extends AppCompatActivity {
     AlertDialog.Builder adb1, adb2, adb3, adb4, adb5;
     AlertDialog ad1, ad2, ad3, ad4, ad5;
     Random rand;
-    int randnum;
+    int randnum, lastnum;
     LinearLayout screen;
+    int[] colors = {Color.BLACK, Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.MAGENTA};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         adb3.setTitle("Hello Albert Again Again");
         adb3.setMessage("Just kidding I don't care");
         adb3.setIcon(R.drawable.sike);
+        adb3.setCancelable(false);
         adb3.setNeutralButton("GO BACK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -52,15 +54,16 @@ public class MainActivity extends AppCompatActivity {
         adb4 = new AlertDialog.Builder(this);
         adb4.setTitle("Hello Albert Again Again Again");
         adb4.setMessage("Actually I do care, and look this button makes the background change colors");
+        adb4.setCancelable(false);
         adb4.setPositiveButton("COLOR GO BRRRR", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 randnum = rand.nextInt(5);
-                if (randnum == 0) screen.setBackgroundColor(Color.RED);
-                if (randnum == 1) screen.setBackgroundColor(Color.BLUE);
-                if (randnum == 2) screen.setBackgroundColor(Color.GREEN);
-                if (randnum == 3) screen.setBackgroundColor(Color.YELLOW);
-                if (randnum == 4) screen.setBackgroundColor(Color.BLACK);
+                while (lastnum==randnum){
+                    randnum = rand.nextInt(5);
+                }
+                lastnum = randnum;
+                screen.setBackgroundColor(colors[randnum]);
 
             }
         });
@@ -75,15 +78,16 @@ public class MainActivity extends AppCompatActivity {
         adb5 = new AlertDialog.Builder(this);
         adb5.setTitle("One last hello MR Levi");
         adb5.setMessage("I hope you have a happy Hanukka with these buttons that change the background color/reset it to white");
+        adb5.setCancelable(false);
         adb5.setPositiveButton("COLOR GO BRRRR 2", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 randnum = rand.nextInt(5);
-                if (randnum == 0) screen.setBackgroundColor(Color.RED);
-                if (randnum == 1) screen.setBackgroundColor(Color.BLUE);
-                if (randnum == 2) screen.setBackgroundColor(Color.GREEN);
-                if (randnum == 3) screen.setBackgroundColor(Color.YELLOW);
-                if (randnum == 4) screen.setBackgroundColor(Color.BLACK);
+                while (lastnum==randnum){
+                    randnum = rand.nextInt(5);
+                }
+                lastnum = randnum;
+                screen.setBackgroundColor(colors[randnum]);
 
             }
         });
